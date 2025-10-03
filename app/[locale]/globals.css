@@ -126,8 +126,7 @@
   }
 
   .hero {
-    background-image: url('/main-bg.svg');
-    background-size: contain
+    background: linear-gradient(to bottom, white, #f94c1b 50%, white);
 
   }
 

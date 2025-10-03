@@ -1,46 +1,73 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { MobileMenu } from "./MobileMenu"
-import { useLocale } from "next-intl"
-import { usePathname, useRouter } from "next/navigation"
+} from "@/components/ui/dropdown-menu";
+import { MobileMenu } from "./MobileMenu";
+import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
-  const locale = useLocale()
+  const [scrolled, setScrolled] = useState(false);
+
+  const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
- 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // if scrolled more than 10px
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const languages = [
     { code: "fr", name: "Français", flag: "https://flagcdn.com/w160/fr.png" },
     { code: "en", name: "English", flag: "https://flagcdn.com/w160/gb.png" },
-  ]
+  ];
 
   const handleLanguageChange = (lang) => {
     const newPathname = pathname.replace(/^\/(en|fr)/, `/${lang}`);
     router.push(newPathname);
-  }
-  const selected = languages.find((el) => el.code === locale)
+  };
+  const selected = languages.find((el) => el.code === locale);
+
+  const menuItems = [
+    { label: "Home", ariaLabel: "Go to home page", link: "/" },
+    { label: "About", ariaLabel: "Learn about us", link: "/about" },
+    { label: "Services", ariaLabel: "View our services", link: "/services" },
+    { label: "Contact", ariaLabel: "Get in touch", link: "/contact" },
+  ];
+
+  const socialItems = [
+    { label: "Twitter", link: "https://twitter.com" },
+    { label: "GitHub", link: "https://github.com" },
+    { label: "LinkedIn", link: "https://linkedin.com" },
+  ];
 
   return (
-    <nav className="flex flex-wrap items-center justify-between w-full bg-primary py-3 px-4 md:px-10 lg:px-20">
+    <nav
+      className={`flex flex-wrap items-center justify-between w-full fixed z-50 py-3 px-4 md:px-10 lg:px-20 transition-all duration-300 ${
+        scrolled ? "bg-white/20 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
+    >
       {/* Left side - Mobile Menu */}
-      <div className="flex-shrink-0">
-        <MobileMenu selectedLang={locale} handleLanguageChange={handleLanguageChange}/>
+      <div className="">
+      
+        <MobileMenu selectedLang={locale} handleLanguageChange={handleLanguageChange} scrolled/>
       </div>
 
       {/* Center - Logo */}
       <div className="flex-grow text-center">
         <Image
-          src={"/logo-trans.png"}
+          src={scrolled ? "/white-logo.png" : "/logo-trans.png"}
           height={70}
           width={70}
           alt="logo"
@@ -88,5 +115,5 @@ export default function Navbar() {
         </DropdownMenu>
       </div>
     </nav>
-  )
+  );
 }

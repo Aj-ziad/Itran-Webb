@@ -25,7 +25,8 @@ const languages = [
 
 export function MobileMenu({
   selectedLang: externalLang,
-  handleLanguageChange : changeLang
+  handleLanguageChange : changeLang,
+  scrolled
 } = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [internalLang, setInternalLang] = useState("fr");
@@ -60,7 +61,8 @@ export function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-50 bg-white/90 backdrop-blur-2xl overflow-hidden"
+            className="fixed inset-0 w-screen h-screen z-50 bg-white/40 backdrop-blur-2xl overflow-hidden"
+
           >
             {/* Decorative gradient orbs */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
