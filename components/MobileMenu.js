@@ -25,8 +25,7 @@ const languages = [
 
 export function MobileMenu({
   selectedLang: externalLang,
-  handleLanguageChange : changeLang,
-  scrolled
+  handleLanguageChange: changeLang,
 } = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [internalLang, setInternalLang] = useState("fr");
@@ -35,7 +34,8 @@ export function MobileMenu({
   const selected = languages.find((l) => l.code === selectedLang);
 
   const handleLanguageChange = (code) => {
-    changeLang(code)
+    changeLang?.(code);
+    setInternalLang(code);
   };
 
   return (
@@ -49,10 +49,6 @@ export function MobileMenu({
         <Menu size={24} />
       </button>
 
-      
-
-
-
       {/* Full Screen Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
@@ -60,13 +56,22 @@ export function MobileMenu({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 w-screen h-screen z-50 bg-white/40 backdrop-blur-2xl overflow-hidden"
-
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 w-screen h-screen z-50 overflow-hidden 
+                       bg-gradient-to-br from-white/40 via-white/20 to-white/10 
+                       backdrop-blur-2xl"
           >
-            {/* Decorative gradient orbs */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+            {/* Animated gradient orbs */}
+            <motion.div
+              animate={{ y: [0, 20, 0], x: [0, -20, 0] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+              className="absolute top-0 right-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"
+            />
+            <motion.div
+              animate={{ y: [0, -15, 0], x: [0, 15, 0] }}
+              transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+              className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+            />
 
             <div className="relative w-full h-full flex flex-col items-center justify-center px-6">
               {/* Close Button */}
@@ -74,11 +79,13 @@ export function MobileMenu({
                 initial={{ opacity: 0, rotate: -90 }}
                 animate={{ opacity: 1, rotate: 0 }}
                 transition={{ delay: 0.2, duration: 0.3 }}
-                className="absolute top-6 left-6 p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all hover:rotate-90 duration-300"
+                className="absolute top-6 left-4 p-3 rounded-full 
+                           bg-white/30 backdrop-blur-lg border border-white/40 
+                           hover:bg-white/50 transition-all duration-300 hover:rotate-90"
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
               >
-                <X size={24} className="text-black" />
+                <X size={22} className="text-black" />
               </motion.button>
 
               {/* Language Selector */}
@@ -86,14 +93,16 @@ export function MobileMenu({
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.3 }}
-                className="absolute top-6 right-6"
+                className="absolute top-6 right-4"
               >
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 backdrop-blur-sm border border-gray-200">
+                    <button className="flex items-center gap-2 px-4 py-2.5 rounded-full 
+                                       bg-white/30 backdrop-blur-md border border-white/40 
+                                       hover:bg-white/50 transition-all duration-300">
                       {selected && (
                         <img
-                          src={selected.flag || "/placeholder.svg"}
+                          src={selected.flag}
                           alt={selected.name}
                           className="w-5 h-5 rounded-full object-cover"
                         />
@@ -104,19 +113,20 @@ export function MobileMenu({
                       <ChevronDown size={14} className="text-gray-600" />
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-48 bg-white backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200 mt-2">
+                  <DropdownMenuContent className="w-48 bg-white/90 backdrop-blur-xl 
+                                                   rounded-2xl shadow-2xl border border-gray-200 mt-2">
                     {languages.map((lang) => (
                       <DropdownMenuItem
                         key={lang.code}
                         onClick={() => handleLanguageChange(lang.code)}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-primary transition-colors ${
+                        className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-colors ${
                           selectedLang === lang.code
-                            ? "bg-orange-50 font-semibold"
-                            : ""
+                            ? "bg-orange-100 font-semibold"
+                            : "hover:bg-orange-50"
                         }`}
                       >
                         <img
-                          src={lang.flag || "/placeholder.svg"}
+                          src={lang.flag}
                           alt={lang.name}
                           className="w-5 h-5 rounded-full object-cover"
                         />
@@ -129,25 +139,24 @@ export function MobileMenu({
 
               {/* Navigation Links */}
               <nav className="flex flex-col items-center gap-8">
-                
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      delay: 0.1 + index * 0.08,
-                      duration: 0.4,
+                      delay: 0.15 + index * 0.1,
+                      duration: 0.5,
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
                     <a
                       href={link.href}
-                      className="group relative text-center text-3xl font-bold text-black hover:text-orange-500 transition-colors duration-300"
+                      className="group relative text-center text-3xl font-bold 
+                                 text-black hover:text-orange-500 transition-colors duration-300"
                       onClick={() => setMenuOpen(false)}
                     >
                       {link.name}
-                      {/* Animated underline */}
                       <motion.span
                         className="absolute -bottom-2 left-0 h-1 bg-orange-500 rounded-full"
                         initial={{ width: 0 }}
@@ -164,7 +173,8 @@ export function MobileMenu({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="absolute bottom-8 text-sm text-gray-600"
+                className="absolute bottom-8 px-4 py-2 rounded-xl bg-white/30 backdrop-blur-md 
+                           border border-white/40 text-xs text-gray-700"
               >
                 © 2025 Itran Web
               </motion.p>

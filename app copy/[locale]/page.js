@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <div className="min-h-screen hero text-foreground">
       <HeroSection />
-      {/* <StatsSection />
+      <StatsSection />
       <ServicesSection />
       <PortfolioSection />
-      <CTASection /> */}
+      <CTASection />
       <Footer />
     </div>
   );
