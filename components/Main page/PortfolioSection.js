@@ -28,7 +28,7 @@ export default function PortfolioSection() {
             Trusted by businesses worldwide
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We've helped companies of all sizes achieve their digital goals
+            We&apos;ve helped companies of all sizes achieve their digital goals
             with stunning, high-performance websites.
           </p>
         </div>

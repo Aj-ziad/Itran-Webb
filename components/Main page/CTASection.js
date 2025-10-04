@@ -13,7 +13,7 @@ export default function CTASection() {
             Ready to transform your business?
           </h2>
           <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-            Let's discuss your project and create something amazing together.
+            Let&apos;s discuss your project and create something amazing together.
             Get a free consultation and quote today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

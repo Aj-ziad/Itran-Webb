@@ -128,7 +128,9 @@ export function MobileMenu({
                             : "hover:bg-orange-50"
                         }`}
                       >
-                        <img
+                        <Image
+                        width={20}
+                        height={20}
                           src={lang.flag}
                           alt={lang.name}
                           className="w-5 h-5 rounded-full object-cover"

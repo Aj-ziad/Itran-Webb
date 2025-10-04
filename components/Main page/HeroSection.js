@@ -11,7 +11,7 @@ import CurvedLoop from "../CurvedLoop";
 
 export default function HeroSection() {
   return (
-    <section className="relative  flex justify-center items-center max-sm:pt-20 pt-40 pb-20 px-4 overflow-hidden">
+    <section className="relative min-h-screen flex justify-center items-center max-sm:pt-20 pt-40 pb-20 px-4 overflow-hidden">
       <div className="absolute inset-0 ">
         {/* <Beams lightColor="#f94c1b" rotation={30} beamNumber={38} /> */}
         <DarkVeil hueShift={225} speed={0.5} />
