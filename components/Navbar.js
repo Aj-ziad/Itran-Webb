@@ -81,7 +81,9 @@ export default function Navbar() {
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/20 text-white backdrop-blur-md hover:bg-white/30 transition-all duration-300">
               {selected && (
-                <img
+                <Image
+                width={20}
+                height={20}
                   src={selected.flag || "/placeholder.svg"}
                   alt={selected.name}
                   className="w-5 h-5 rounded-full"
@@ -103,7 +105,9 @@ export default function Navbar() {
                   locale === lang.code ? "bg-orange-200 font-semibold" : ""
                 }`}
               >
-                <img
+                <Image
+                width={20}
+                height={20}
                   src={lang.flag || "/placeholder.svg"}
                   alt={lang.name}
                   className="w-5 h-5 rounded-full"

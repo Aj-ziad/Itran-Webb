@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Nos services", href: "#services" },
@@ -101,7 +102,9 @@ export function MobileMenu({
                                        bg-white/30 backdrop-blur-md border border-white/40 
                                        hover:bg-white/50 transition-all duration-300">
                       {selected && (
-                        <img
+                        <Image
+                        height={20}
+                        width={20}
                           src={selected.flag}
                           alt={selected.name}
                           className="w-5 h-5 rounded-full object-cover"
