@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
+import Header1 from "@/components/mvpblocks/header-1";
 
 export default async function LocaleLayout({ children, params }) {
   // Ensure that the incoming `locale` is valid
@@ -44,7 +45,7 @@ export default async function LocaleLayout({ children, params }) {
           disableTransitionOnChange
         > */}
           <NextIntlClientProvider>
-            <Navbar />
+            <Header1 />
             <div className=" ">
 
               {children}

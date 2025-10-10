@@ -14,14 +14,14 @@ import Image from "next/image";
 const navLinks = [
   { name: "Nos services", href: "#services" },
   { name: "Les villes que nous desservons", href: "#cities" },
-  { name: "Rejoignez Done en tant que partenaire", href: "#partner" },
-  { name: "Rejoignez Done en tant que livreur", href: "#deliver" },
+  { name: "Rejoignez-nous en tant que partenaire", href: "#partner" },
+  { name: "Rejoignez-nous en tant que livreur", href: "#deliver" },
   { name: "Questions fréquentes", href: "#faq" },
 ];
 
 const languages = [
-  { code: "fr", name: "Français", flag: "https://flagcdn.com/w160/fr.png" },
-  { code: "en", name: "English", flag: "https://flagcdn.com/w160/gb.png" },
+  { code: "fr", name: "Français", flag: "https://flagcdn.com/w20/fr.png" },
+  { code: "en", name: "English", flag: "https://flagcdn.com/w20/gb.png" },
 ];
 
 export function MobileMenu({
@@ -41,16 +41,16 @@ export function MobileMenu({
 
   return (
     <>
-      {/* Menu Toggle Button */}
-      <button
+      {/* Hamburger Button */}
+      <motion.button
+        whileTap={{ scale: 0.9 }}
         onClick={() => setMenuOpen(true)}
-        className="p-2 rounded-xl text-white hover:bg-white/20 transition-all duration-300"
+        className="p-2.5 rounded-xl text-white/90 hover:bg-[#f94c1b]/20 backdrop-blur-sm transition-all duration-300"
         aria-label="Open menu"
       >
-        <Menu size={24} />
-      </button>
+        <Menu size={22} />
+      </motion.button>
 
-      {/* Full Screen Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -58,131 +58,119 @@ export function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 w-screen h-screen z-50 overflow-hidden 
-                       bg-gradient-to-br from-white/40 via-white/20 to-white/10 
-                       backdrop-blur-2xl"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl"
           >
-            {/* Animated gradient orbs */}
+            {/* Animated background accents */}
             <motion.div
-              animate={{ y: [0, 20, 0], x: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#f94c1b]/10 rounded-full blur-3xl"
             />
             <motion.div
-              animate={{ y: [0, -15, 0], x: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+              animate={{ y: [0, 30, 0] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl"
             />
 
-            <div className="relative w-full h-full flex flex-col items-center justify-center px-6">
-              {/* Close Button */}
-              <motion.button
-                initial={{ opacity: 0, rotate: -90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.2, duration: 0.3 }}
-                className="absolute top-6 left-4 p-3 rounded-full 
-                           bg-white/30 backdrop-blur-lg border border-white/40 
-                           hover:bg-white/50 transition-all duration-300 hover:rotate-90"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-              >
-                <X size={22} className="text-black" />
-              </motion.button>
+            <div className="relative w-full h-full flex flex-col items-center justify-between py-12 px-6">
+              {/* Header: Close + Language */}
+              <div className="w-full flex justify-between items-center">
+                {/* Close Button */}
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => setMenuOpen(false)}
+                  className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all"
+                  aria-label="Close menu"
+                >
+                  <X size={20} className="text-white" />
+                </motion.button>
 
-              {/* Language Selector */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.3 }}
-                className="absolute top-6 right-4"
-              >
+                {/* Language Selector */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center gap-2 px-4 py-2.5 rounded-full 
-                                       bg-white/30 backdrop-blur-md border border-white/40 
-                                       hover:bg-white/50 transition-all duration-300">
+                    <motion.button
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all"
+                    >
                       {selected && (
                         <Image
-                        height={20}
-                        width={20}
                           src={selected.flag}
                           alt={selected.name}
-                          className="w-5 h-5 rounded-full object-cover"
+                          width={20}
+                          height={20}
+                          className="rounded-full"
                         />
                       )}
-                      <span className="text-sm font-medium text-black">
+                      <span className="text-white font-medium text-sm">
                         {selectedLang.toUpperCase()}
                       </span>
-                      <ChevronDown size={14} className="text-gray-600" />
-                    </button>
+                      <ChevronDown size={14} className="text-orange-300" />
+                    </motion.button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-48 bg-white/90 backdrop-blur-xl 
-                                                   rounded-2xl shadow-2xl border border-gray-200 mt-2">
+                  <DropdownMenuContent
+                    className="w-48 bg-gray-900/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-700 p-2"
+                    align="end"
+                  >
                     {languages.map((lang) => (
                       <DropdownMenuItem
                         key={lang.code}
                         onClick={() => handleLanguageChange(lang.code)}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-colors ${
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
                           selectedLang === lang.code
-                            ? "bg-orange-100 font-semibold"
-                            : "hover:bg-orange-50"
+                            ? "bg-[#f94c1b]/20 text-white"
+                            : "text-gray-300 hover:bg-gray-800"
                         }`}
                       >
                         <Image
-                        width={20}
-                        height={20}
                           src={lang.flag}
                           alt={lang.name}
-                          className="w-5 h-5 rounded-full object-cover"
+                          width={20}
+                          height={20}
+                          className="rounded-full"
                         />
-                        <span className="text-black">{lang.name}</span>
+                        <span>{lang.name}</span>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-              </motion.div>
+              </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col items-center gap-8">
+              <nav className="flex flex-col items-center gap-7">
                 {navLinks.map((link, index) => (
-                  <motion.div
+                  <motion.a
                     key={link.name}
-                    initial={{ opacity: 0, y: 40 }}
+                    href={link.href}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      delay: 0.15 + index * 0.1,
+                      delay: 0.2 + index * 0.1,
                       duration: 0.5,
-                      ease: [0.22, 1, 0.36, 1],
+                      ease: "easeOut",
                     }}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-2xl md:text-3xl font-semibold text-white hover:text-[#f94c1b] transition-colors text-center px-4 py-2 relative"
                   >
-                    <a
-                      href={link.href}
-                      className="group relative text-center text-3xl font-bold 
-                                 text-black hover:text-orange-500 transition-colors duration-300"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {link.name}
-                      <motion.span
-                        className="absolute -bottom-2 left-0 h-1 bg-orange-500 rounded-full"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </a>
-                  </motion.div>
+                    {link.name}
+                    {/* Underline on hover (static for mobile clarity) */}
+                    <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[#f94c1b] rounded-full opacity-0 group-hover:opacity-100 group-hover:w-8 group-hover:left-0 transition-all duration-300" />
+                  </motion.a>
                 ))}
               </nav>
 
-              {/* Footer Text */}
-              <motion.p
+              {/* Footer */}
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="absolute bottom-8 px-4 py-2 rounded-xl bg-white/30 backdrop-blur-md 
-                           border border-white/40 text-xs text-gray-700"
+                transition={{ delay: 0.6 }}
+                className="text-center text-gray-500 text-sm"
               >
-                © 2025 Itran Web
-              </motion.p>
+                © {new Date().getFullYear()} Itran Web
+              </motion.div>
             </div>
           </motion.div>
         )}

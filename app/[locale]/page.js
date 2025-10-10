@@ -1,19 +1,31 @@
-import StatsSection from "@/components/Main page/StatsSection";
-import ServicesSection from "@/components/Main page/ServicesSection";
-import PortfolioSection from "@/components/Main page/PortfolioSection";
-import CTASection from "@/components/Main page/CTASection";
-import Footer from "@/components/Main page/Footer";
-import HeroSection from "@/components/Main page/HeroSection";
+import HeroSection from "@/components/MainPage/HeroSection";
+import ContactUs1 from "@/components/mvpblocks/contact-us-1";
+import CTA2 from "@/components/mvpblocks/cta-2";
+import Feature1 from "@/components/mvpblocks/feature-1";
+import GradientHero from "@/components/mvpblocks/gradient-hero";
+import LogoCloud from "@/components/mvpblocks/sparkles-logo";
+import React from "react";
 
-export default function Home() {
+const page = () => {
   return (
-    <div className="min-h-screen hero text-foreground">
-      <HeroSection />
-      {/* <StatsSection />
-      <ServicesSection />
-      <PortfolioSection />
-      <CTASection /> */}
-      <Footer />
+    <div>
+      {/* <HeroSection /> */}
+      <GradientHero />
+      <LogoCloud />
+      <div className="relative">
+      <div
+            className="absolute inset-0 h-fit mx-auto  max-w-xs blur-[118px]"
+            style={{
+              background:
+                "linear-gradient(152.92deg, var(--primary) 10%, transparent 80%)",
+            }}
+          ></div>
+        <Feature1 />
+        <ContactUs1 />
+        <CTA2 />
+      </div>
     </div>
   );
-}
+};
+
+export default page;

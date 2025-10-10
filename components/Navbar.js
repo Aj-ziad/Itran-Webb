@@ -55,7 +55,7 @@ export default function Navbar() {
   return (
     <nav
       className={`flex flex-wrap items-center justify-between w-full fixed z-50 py-3 px-4 md:px-10 lg:px-20 transition-all duration-300 ${
-        scrolled ? "bg-white/20 backdrop-blur-md shadow-md" : "bg-transparent"
+        scrolled ? " backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       {/* Left side - Mobile Menu */}
