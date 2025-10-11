@@ -8,8 +8,11 @@ import Earth from "@/components/ui/globe";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { Label } from "@/components/ui/label";
 import { Check, Loader2, AlertCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ContactUs1() {
+  const t = useTranslations("contact"); // 👈 specify namespace
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -23,7 +26,7 @@ export default function ContactUs1() {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
-    
+
     try {
       const response = await fetch("https://formspree.io/f/meorrnkz", {
         method: "POST",
@@ -44,11 +47,11 @@ export default function ContactUs1() {
         setIsSubmitted(true);
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        setError("Something went wrong. Please try again.");
+        setError(t("errorGeneric"));
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setError("Failed to send message. Please try again.");
+      setError(t("errorFailed"));
     } finally {
       setIsSubmitting(false);
     }
@@ -68,10 +71,10 @@ export default function ContactUs1() {
                 className="flex w-full gap-2"
               >
                 <h2 className="from-white to-gray-300 mb-2 bg-gradient-to-r bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
-                  Contact
+                  {t("title")}
                 </h2>
                 <span className="text-primary relative z-10 w-full text-4xl font-bold tracking-tight italic md:text-5xl">
-                  Us
+                  {t("us")}
                 </span>
                 <SparklesCore
                   id="contact-sparkles"
@@ -99,14 +102,14 @@ export default function ContactUs1() {
                     transition={{ delay: 0.4 }}
                   >
                     <Label htmlFor="name" className="text-gray-200">
-                      Name
+                      {t("name")}
                     </Label>
                     <Input
                       id="name"
                       name="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="Enter your name"
+                      placeholder={t("namePlaceholder")}
                       required
                       className="border-border/50 text-white placeholder:text-gray-400"
                     />
@@ -119,7 +122,7 @@ export default function ContactUs1() {
                     transition={{ delay: 0.5 }}
                   >
                     <Label htmlFor="email" className="text-gray-200">
-                      Email
+                      {t("email")}
                     </Label>
                     <Input
                       id="email"
@@ -127,7 +130,7 @@ export default function ContactUs1() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
+                      placeholder={t("emailPlaceholder")}
                       required
                       className="border-border/50 text-white placeholder:text-gray-400"
                     />
@@ -141,14 +144,14 @@ export default function ContactUs1() {
                   transition={{ delay: 0.6 }}
                 >
                   <Label htmlFor="message" className="text-gray-200">
-                    Message
+                    {t("message")}
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Enter your message"
+                    placeholder={t("messagePlaceholder")}
                     required
                     className="h-40 resize-none border-border/50 text-white placeholder:text-gray-400"
                   />
@@ -174,15 +177,15 @@ export default function ContactUs1() {
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
+                        {t("sending")}
                       </span>
                     ) : isSubmitted ? (
                       <span className="flex items-center justify-center">
                         <Check className="mr-2 h-4 w-4" />
-                        Message Sent!
+                        {t("messageSent")}
                       </span>
                     ) : (
-                      <span>Send Message</span>
+                      <span>{t("sendButton")}</span>
                     )}
                   </Button>
                 </motion.div>
@@ -197,7 +200,7 @@ export default function ContactUs1() {
               className="relative my-8 flex items-center justify-center overflow-hidden px-8"
             >
               <article className="relative mx-auto h-[350px] min-h-60 max-w-[450px] overflow-hidden rounded-3xl border border-border/30 bg-gradient-to-b from-primary/20 to-primary/5 p-6 text-3xl tracking-tight text-white md:h-[450px] md:min-h-80 md:p-8 md:text-4xl md:leading-[1.05] lg:text-5xl">
-                Presenting you with the best UI possible.
+                {t("globeText")}
                 <div className="absolute -right-20 -bottom-20 z-10 mx-auto flex h-full w-full max-w-[300px] items-center justify-center transition-all duration-700 hover:scale-105 md:-right-28 md:-bottom-28 md:max-w-[550px]">
                   <Earth
                     scale={1.1}

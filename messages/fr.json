@@ -1,144 +1,160 @@
 {
-  "HomePage": {
-    "title": "Bonjour le monde !",
-    "about": "Aller à la page à propos"
+  "header": {
+    "nav": {
+      "home": "Accueil",
+      "features": "Fonctionnalités",
+      "products": "Produits",
+      "pricing": "Tarification",
+      "about": "À propos"
+    },
+    "products": {
+      "analytics": {
+        "name": "Analytique",
+        "description": "Suivez vos métriques"
+      },
+      "dashboard": {
+        "name": "Tableau de bord",
+        "description": "Gérez vos données"
+      },
+      "reports": {
+        "name": "Rapports",
+        "description": "Générez des insights"
+      }
+    },
+    "cta": {
+      "getQuote": "Obtenir un devis"
+    },
+    "language": {
+      "label": "Langue",
+      "english": "English",
+      "french": "Français"
+    },
+    "loading": "Chargement...",
+    "loadingAssets": "Chargement des ressources..."
   },
-  "LoginPage": {
-    "title": "Bon retour parmi nous !",
-    "description": "Connectez-vous pour accéder à votre tableau de bord et continuer à optimiser votre processus QA.",
-    "usernameLabel": "Nom d'utilisateur",
-    "usernamePlaceholder": "Entrez votre nom d'utilisateur",
-    "passwordLabel": "Mot de passe",
-    "forgotPassword": "Mot de passe oublié ?",
-    "loginButton": "Se connecter",
-    "signupPrompt": "Vous n'avez pas de compte ?",
-    "signupLink": "S'inscrire",
-    "captchaFailed": "Échec de la vérification CAPTCHA.",
-    "loginFailed": "Échec de la connexion",
-    "success": "Succès",
-    "continueWithGoogle": "Continuer avec Google",
-    "continueWithApple": "Continuer avec Apple",
-    "marketingTitle": "Révolutionnez la QA avec\nune automatisation plus intelligente",
-    "testimonial": "« SoftQA a complètement transformé notre processus de test. C’est fiable, efficace, et garantit que nos livraisons sont toujours au top. »",
-    "testimonialAuthor": "Michael Carter",
-    "testimonialRole": "Ingénieur logiciel chez DevCore",
-    "joinTeams": "Rejoignez 1K équipes",
-
-    "verifyTitle": "Vérifier le nouvel appareil",
-    "verifyDescription": "Nous avons envoyé un code de vérification à votre adresse e-mail. Veuillez l’entrer ci-dessous pour continuer.",
-    "verificationCodeLabel": "Code de vérification",
-    "verificationCodePlaceholder": "Entrez le code à 6 chiffres",
-    "resendCode": "Renvoyer le code",
-    "didNotReceiveCode": "Vous n’avez pas reçu le code ?"
+  "hero": {
+    "badge": {
+      "new": "Nouveau",
+      "announcement": "Découvrez notre dernière bibliothèque de composants"
+    },
+    "heading": {
+      "stunning": "Des sites web",
+      "websites": "époustouflants",
+      "builtFast": "Construits rapidement. Conçus pour convertir."
+    },
+    "description": "Nous créons des sites web performants et visuellement saisissants qui valorisent votre marque, engagent votre audience et génèrent de vrais résultats commerciaux — le tout livré dans les délais et adapté à vos objectifs uniques.",
+    "cta": {
+      "getQuote": "Obtenir un devis",
+      "learnMore": "En savoir plus"
+    },
+    "browser": {
+      "url": "https://votre-application-geniale.com"
+    },
+    "imageAlt": "Aperçu du tableau de bord"
   },
-  "SignupPage": {
-    "title": "Inscription",
-    "description": "Créez votre compte en remplissant le formulaire ci-dessous",
-    "usernameLabel": "Nom d'utilisateur",
-    "usernamePlaceholder": "Votre nom d'utilisateur",
-    "emailLabel": "Email",
-    "emailPlaceholder": "vous@example.com",
-    "passwordLabel": "Mot de passe",
-    "confirmPasswordLabel": "Confirmez le mot de passe",
-    "signUpButton": "S'inscrire",
-    "alreadyHaveAccount": "Vous avez déjà un compte ?",
-    "loginLink": "Connexion",
-    "continueWithGoogle": "Continuer avec Google",
-    "continueWithGithub": "Continuer avec Github"
+  "logoCloud": {
+    "title": {
+      "trusted": "Approuvé par les experts.",
+      "used": "Utilisé par nous."
+    },
+    "technologies": {
+      "nextjs": "Next.js",
+      "nodejs": "Node.js",
+      "wordpress": "WordPress",
+      "mongodb": "MongoDB",
+      "tailwind": "Tailwind CSS"
+    }
   },
-  "Navbar": {
-    "home": "Accueil",
-    "about": "À propos",
-    "login": "Connexion",
-    "register": "Inscription",
-    "darkModeToggle": "Basculer en mode sombre",
-    "languageLabel": "Langue"
+  "features": {
+    "title": "Pourquoi choisir notre agence ?",
+    "subtitle": "Nous ne construisons pas seulement des sites web — nous créons des expériences digitales qui font croître votre entreprise.",
+    "items": {
+      "customDesign": {
+        "title": "Design personnalisé époustouflant",
+        "description": "Des designs uniques et modernes créés spécifiquement pour votre marque — sans modèles, sans compromis."
+      },
+      "fastDelivery": {
+        "title": "Livraison rapide et fiable",
+        "description": "Du concept au lancement en un temps record, sans sacrifier la qualité ou la performance."
+      },
+      "mobileFirst": {
+        "title": "Approche mobile-first",
+        "description": "Sites web entièrement responsifs qui s'affichent et fonctionnent parfaitement sur tous les appareils et tailles d'écran."
+      },
+      "secureOptimized": {
+        "title": "Sécurisé et optimisé",
+        "description": "Construit selon les meilleures pratiques : prêt pour le SEO, ultra-rapide et protégé contre les menaces."
+      },
+      "conversion": {
+        "title": "Conçu pour convertir",
+        "description": "Des mises en page stratégiques et des appels à l'action clairs qui transforment les visiteurs en clients."
+      },
+      "support": {
+        "title": "Support dédié",
+        "description": "Nous sommes avec vous à chaque étape — de la planification au post-lancement et au-delà."
+      }
+    }
   },
-  "VerifyEmailPage": {
-    "verifyingTitle": "Vérification de votre compte...",
-    "verifyingDescription": "Veuillez patienter pendant que nous vérifions votre adresse e-mail.",
-    "verificationSuccessTitle": "Vérification réussie !",
-    "verificationSuccessMessage": "Votre compte a été vérifié. Vous pouvez maintenant vous connecter.",
-    "goToLogin": "Aller à la connexion",
-    "verificationFailedTitle": "Échec de la vérification",
-    "verificationFailedMessage": "Le lien de vérification est invalide ou a expiré. Veuillez demander un nouvel e-mail de vérification.",
-    "missingParams": "Paramètres de vérification manquants. Veuillez utiliser le lien reçu par e-mail.",
-    "requestNewLink": "Demander un nouveau lien",
-    "sending": "Envoi...",
-    "linkSentMessage": "Un nouveau lien de vérification a été envoyé à votre e-mail.",
-    "linkFailedMessage": "Échec de l'envoi du lien de vérification. Veuillez réessayer.",
-    "emailAlreadyVerified": "Votre adresse e-mail a déjà été vérifiée. Vous pouvez vous connecter à votre compte."
-  },
-  "ResetPassword": {
-    "title": "Réinitialiser le mot de passe",
-    "description": "Entrez votre nouveau mot de passe ci-dessous.",
-    "passwordLabel": "Nouveau mot de passe",
-    "passwordPlaceholder": "Entrez le nouveau mot de passe",
-    "confirmPasswordLabel": "Confirmer le mot de passe",
-    "confirmPasswordPlaceholder": "Confirmez le nouveau mot de passe",
-    "resetButton": "Réinitialiser le mot de passe",
-    "backToLogin": "Retour à la connexion",
-    "requestNewReset": "Demander un nouveau lien de réinitialisation",
-    "authError": "Jeton de réinitialisation invalide ou manquant. Veuillez demander un nouveau lien.",
-    "passwordMismatch": "Les mots de passe ne correspondent pas.",
-    "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères.",
-    "successMessage": "Mot de passe réinitialisé avec succès.",
-    "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
-    "tokenExpired": "Le jeton de réinitialisation a expiré ou est invalide. Veuillez demander un nouveau lien.",
-    "marketingTitle": "Réinitialisation sécurisée du mot de passe",
-    "marketingDescription": "Votre sécurité est notre priorité. Réinitialisez votre mot de passe en toute sécurité."
-  },
-  "SettingsPage": {
-    "title": "Paramètres",
-    "description": "Gérez les paramètres de votre compte et vos préférences",
-    "profile": "Profil",
-    "security": "Sécurité",
-    "notifications": "Notifications",
-    "appearance": "Apparence",
-    "billing": "Facturation",
-    "profileInformation": "Informations du profil",
-    "profileDescription": "Mettez à jour vos informations personnelles et vos préférences",
-    "displayName": "Nom d'affichage",
+  "contact": {
+    "title": "Contactez",
+    "us": "Nous",
+    "name": "Nom",
     "email": "E-mail",
-    "editProfile": "Modifier le profil",
-    "proAccount": "Compte Pro",
-    "profileInfoDescription": "Vos informations de profil sont utilisées dans tous nos services pour personnaliser votre expérience.",
-    "securitySettings": "Paramètres de sécurité",
-    "securityDescription": "Gérez la sécurité de votre compte et l'authentification",
-    "twoFactorAuth": "Authentification à deux facteurs",
-    "twoFactorEnabled": "Votre compte est protégé par l'authentification 2FA",
-    "enabled": "Activé",
-    "disabled": "Désactivé",
-    "securityInfoDescription": "Gardez votre compte sécurisé avec des mots de passe forts et l'authentification à deux facteurs.",
-    "changePassword": "Changer le mot de passe",
-    "manage2FA": "Gérer 2FA",
-    "notificationPreferences": "Préférences de notification",
-    "notificationDescription": "Choisissez comment vous souhaitez être informé des mises à jour",
-    "emailNotifications": "Notifications par e-mail",
-    "receiveEmailUpdates": "Recevoir les mises à jour par e-mail",
-    "pushNotifications": "Notifications push",
-    "receiveDeviceNotifications": "Recevez des notifications sur votre appareil",
-    "notificationInfoDescription": "Gérez comment et quand vous recevez des notifications de notre plateforme.",
-    "appearanceSettings": "Paramètres d'apparence",
-    "appearanceDescription": "Personnalisez l'apparence et la sensation de l'interface",
-    "theme": "Thème",
-    "dark": "Sombre",
-    "light": "Clair",
-    "system": "Système",
-    "fontSize": "Taille de police",
-    "small": "Petit",
-    "medium": "Moyen",
-    "large": "Grand",
-    "accentColor": "Couleur d'accent",
-    "appearanceInfoDescription": "Personnalisez votre expérience avec des thèmes et des préférences d'affichage.",
-    "billingSubscription": "Facturation et abonnement",
-    "billingDescription": "Gérez votre abonnement et vos méthodes de paiement",
-    "proPlan": "Plan Pro",
-    "monthlyBilling": "29 $/mois • Prochaine facturation : 15 jan. 2026",
-    "active": "Actif",
-    "cardExpires": "Expire 12/27",
-    "edit": "Modifier",
-    "billingInfoDescription": "Gérez votre abonnement, consultez les factures et mettez à jour les informations de paiement.",
-    "manageBilling": "Gérer la facturation"
+    "message": "Message",
+    "namePlaceholder": "Entrez votre nom",
+    "emailPlaceholder": "Entrez votre e-mail",
+    "messagePlaceholder": "Entrez votre message",
+    "sendButton": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "messageSent": "Message envoyé !",
+    "errorGeneric": "Un problème est survenu. Veuillez réessayer.",
+    "errorFailed": "Échec de l'envoi du message. Veuillez réessayer.",
+    "globeText": "Nous vous proposons la meilleure interface utilisateur possible."
+  },
+  "cta2": {
+    "title": "Contactons-nous.",
+    "description": "Vos instruments de laboratoire devraient vous servir, et non l’inverse. Nous sommes heureux de vous aider.",
+    "buttons": {
+      "discoveryCall": "Réserver un appel découverte",
+      "testSamples": "Tester vos échantillons"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "Itran Web",
+      "description": "Nous créons des expériences web magnifiques et fonctionnelles avec des technologies modernes. Nous aidons les startups et les entreprises à établir leur présence numérique."
+    },
+    "sections": {
+      "aboutUs": "À propos",
+      "ourServices": "Nos Services",
+      "helpfulLinks": "Liens Utiles",
+      "contactUs": "Contactez-nous"
+    },
+    "about": {
+      "history": "Historique de l’entreprise",
+      "team": "Rencontrez l’équipe",
+      "handbook": "Manuel des employés",
+      "careers": "Carrières"
+    },
+    "services": {
+      "webdev": "Développement Web",
+      "webdesign": "Design Web",
+      "marketing": "Marketing",
+      "googleads": "Google Ads"
+    },
+    "help": {
+      "faqs": "FAQ",
+      "support": "Support",
+      "liveChat": "Chat en direct"
+    },
+    "contact": {
+      "email": "itranweb@gmail.com",
+      "phone": "+212 6 1234 56789",
+      "address": "Agadir, Maroc"
+    },
+    "copyright": {
+      "rights": "Tous droits réservés.",
+      "notice": "&copy; 2025 {name}"
+    }
   }
 }

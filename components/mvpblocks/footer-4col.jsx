@@ -1,3 +1,4 @@
+"use client";
 import {
   Dribbble,
   Facebook,
@@ -10,99 +11,69 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const data = {
-  facebookLink: "https://facebook.com/mvpblocks",
-  instaLink: "https://instagram.com/mvpblocks",
-  twitterLink: "https://twitter.com/mvpblocks",
-  githubLink: "https://github.com/mvpblocks",
-  dribbbleLink: "https://dribbble.com/mvpblocks",
-  services: {
-    webdev: "/web-development",
-    webdesign: "/web-design",
-    marketing: "/marketing",
-    googleads: "/google-ads",
-  },
-  about: {
-    history: "/company-history",
-    team: "/meet-the-team",
-    handbook: "/employee-handbook",
-    careers: "/careers",
-  },
-  help: {
-    faqs: "/faqs",
-    support: "/support",
-    livechat: "/live-chat",
-  },
-  contact: {
-    email: "itranweb@gmail.com",
-    phone: "+212 6 1234 56789",
-    address: "Agadir , Morocco",
-  },
-  company: {
-    name: "Itran Web",
-    description:
-      "Building beautiful and functional web experiences with modern technologies. We help startups and businesses create their digital presence.",
-    logo: "/logo-trans.png",
-  },
-};
+import { useTranslations } from "next-intl";
 
 const socialLinks = [
-  { icon: Facebook, label: "Facebook", href: data.facebookLink },
-  { icon: Instagram, label: "Instagram", href: data.instaLink },
-  { icon: Twitter, label: "Twitter", href: data.twitterLink },
-  { icon: Github, label: "GitHub", href: data.githubLink },
-  { icon: Dribbble, label: "Dribbble", href: data.dribbbleLink },
-];
-
-const aboutLinks = [
-  { text: "Company History", href: data.about.history },
-  { text: "Meet the Team", href: data.about.team },
-  { text: "Employee Handbook", href: data.about.handbook },
-  { text: "Careers", href: data.about.careers },
-];
-
-const serviceLinks = [
-  { text: "Web Development", href: data.services.webdev },
-  { text: "Web Design", href: data.services.webdesign },
-  { text: "Marketing", href: data.services.marketing },
-  { text: "Google Ads", href: data.services.googleads },
-];
-
-const helpfulLinks = [
-  { text: "FAQs", href: data.help.faqs },
-  { text: "Support", href: data.help.support },
-  { text: "Live Chat", href: data.help.livechat, hasIndicator: true },
-];
-
-const contactInfo = [
-  { icon: Mail, text: data.contact.email },
-  { icon: Phone, text: data.contact.phone },
-  { icon: MapPin, text: data.contact.address, isAddress: true },
+  { icon: Facebook, label: "Facebook", href: "https://facebook.com/mvpblocks" },
+  { icon: Instagram, label: "Instagram", href: "https://instagram.com/mvpblocks" },
+  { icon: Twitter, label: "Twitter", href: "https://twitter.com/mvpblocks" },
+  { icon: Github, label: "GitHub", href: "https://github.com/mvpblocks" },
+  { icon: Dribbble, label: "Dribbble", href: "https://dribbble.com/mvpblocks" },
 ];
 
 export default function Footer4Col() {
+  const t = useTranslations("footer");
+
+  // Rebuild link arrays using translations
+  const aboutLinks = [
+    { text: t("about.history"), href: "/company-history" },
+    { text: t("about.team"), href: "/meet-the-team" },
+    { text: t("about.handbook"), href: "/employee-handbook" },
+    { text: t("about.careers"), href: "/careers" },
+  ];
+
+  const serviceLinks = [
+    { text: t("services.webdev"), href: "/web-development" },
+    { text: t("services.webdesign"), href: "/web-design" },
+    { text: t("services.marketing"), href: "/marketing" },
+    { text: t("services.googleads"), href: "/google-ads" },
+  ];
+
+  const helpfulLinks = [
+    { text: t("help.faqs"), href: "/faqs" },
+    { text: t("help.support"), href: "/support" },
+    { text: t("help.liveChat"), href: "/live-chat", hasIndicator: true },
+  ];
+
+  const contactInfo = [
+    { icon: Mail, text: t("contact.email") },
+    { icon: Phone, text: t("contact.phone") },
+    { icon: MapPin, text: t("contact.address"), isAddress: true },
+  ];
+
+  const companyName = t("company.name");
+
   return (
-    <footer className=" mt-16 w-full place-self-end rounded-t-xl">
+    <footer className="mt-16 w-full place-self-end rounded-t-xl">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Brand Column */}
           <div>
             <div className="text-primary flex justify-center gap-2 sm:justify-start">
               <Image
-                src={data.company.logo || "/placeholder.svg"}
-                alt="logo"
+                src="/logo-trans.png"
+                alt={companyName}
                 className="h-8 w-8 rounded-full"
                 width={32}
                 height={32}
               />
               <span className="text-2xl font-semibold text-white">
-                {data.company.name}
+                {companyName}
               </span>
             </div>
 
             <p className="text-gray-400 mt-6 max-w-md text-center leading-relaxed sm:max-w-xs sm:text-left">
-              {data.company.description}
+              {t("company.description")}
             </p>
 
             <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
@@ -112,8 +83,8 @@ export default function Footer4Col() {
                     prefetch={false}
                     href={href}
                     className="text-gray-400 hover:text-primary transition-colors"
+                    aria-label={label}
                   >
-                    <span className="sr-only">{label}</span>
                     <Icon className="size-6" />
                   </Link>
                 </li>
@@ -124,14 +95,11 @@ export default function Footer4Col() {
           {/* Links Grid */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-white">About Us</p>
+              <p className="text-lg font-medium text-white">{t("sections.aboutUs")}</p>
               <ul className="mt-8 space-y-4 text-sm">
                 {aboutLinks.map(({ text, href }) => (
                   <li key={text}>
-                    <a
-                      href={href}
-                      className="text-gray-400 hover:text-primary transition-colors"
-                    >
+                    <a href={href} className="text-gray-400 hover:text-primary transition-colors">
                       {text}
                     </a>
                   </li>
@@ -140,14 +108,11 @@ export default function Footer4Col() {
             </div>
 
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-white">Our Services</p>
+              <p className="text-lg font-medium text-white">{t("sections.ourServices")}</p>
               <ul className="mt-8 space-y-4 text-sm">
                 {serviceLinks.map(({ text, href }) => (
                   <li key={text}>
-                    <a
-                      href={href}
-                      className="text-gray-400 hover:text-primary transition-colors"
-                    >
+                    <a href={href} className="text-gray-400 hover:text-primary transition-colors">
                       {text}
                     </a>
                   </li>
@@ -156,7 +121,7 @@ export default function Footer4Col() {
             </div>
 
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-white">Helpful Links</p>
+              <p className="text-lg font-medium text-white">{t("sections.helpfulLinks")}</p>
               <ul className="mt-8 space-y-4 text-sm">
                 {helpfulLinks.map(({ text, href, hasIndicator }) => (
                   <li key={text}>
@@ -184,7 +149,7 @@ export default function Footer4Col() {
             </div>
 
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-white">Contact Us</p>
+              <p className="text-lg font-medium text-white">{t("sections.contactUs")}</p>
               <ul className="mt-8 space-y-4 text-sm">
                 {contactInfo.map(({ icon: Icon, text, isAddress }) => (
                   <li key={text}>
@@ -212,10 +177,10 @@ export default function Footer4Col() {
         <div className="mt-12 border-t border-border pt-6">
           <div className="text-center sm:flex sm:justify-between sm:text-left">
             <p className="text-gray-500 text-sm">
-              <span className="block sm:inline">All rights reserved.</span>
+              <span className="block sm:inline">{t("copyright.rights")}</span>
             </p>
             <p className="text-gray-500 mt-4 text-sm sm:order-first sm:mt-0">
-              &copy; 2025 {data.company.name}
+              {t.rich("copyright.notice", { name: companyName })}
             </p>
           </div>
         </div>

@@ -6,23 +6,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Features", href: "/features" },
-  {
-    name: "Products",
-    href: "/products",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "Analytics", href: "/analytics", description: "Track your metrics" },
-      { name: "Dashboard", href: "/dashboard", description: "Manage your data" },
-      { name: "Reports", href: "/reports", description: "Generate insights" },
-    ],
-  },
-  { name: "Pricing", href: "/pricing" },
-  { name: "About", href: "/about" },
-];
+import { useTranslations } from "next-intl";
 
 export default function Header1() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,10 +17,41 @@ export default function Header1() {
   const { theme } = useTheme();
   const pathname = usePathname();
   const router = useRouter();
+  const t = useTranslations('header');
 
   const languages = [
-    { code: "en", label: "English", flag: "🇬🇧", display: "EN" },
-    { code: "fr", label: "Français", flag: "🇫🇷", display: "FR" },
+    { code: "en", label: t('language.english'), flag: "🇬🇧", display: "EN" },
+    { code: "fr", label: t('language.french'), flag: "🇫🇷", display: "FR" },
+  ];
+
+  // Navigation items with translations
+  const navItems = [
+    { name: t('nav.home'), href: "/" },
+    { name: t('nav.features'), href: "/features" },
+    {
+      name: t('nav.products'),
+      href: "/products",
+      hasDropdown: true,
+      dropdownItems: [
+        { 
+          name: t('products.analytics.name'), 
+          href: "/analytics", 
+          description: t('products.analytics.description')
+        },
+        { 
+          name: t('products.dashboard.name'), 
+          href: "/dashboard", 
+          description: t('products.dashboard.description')
+        },
+        { 
+          name: t('products.reports.name'), 
+          href: "/reports", 
+          description: t('products.reports.description')
+        },
+      ],
+    },
+    { name: t('nav.pricing'), href: "/pricing" },
+    { name: t('nav.about'), href: "/about" },
   ];
 
   // Detect current locale from pathname
@@ -63,7 +78,7 @@ export default function Header1() {
     <motion.header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10'
+          ? ' backdrop-blur-lg border-b border-white/10'
           : 'bg-transparent'
       }`}
       initial={{ y: -100, opacity: 0 }}
@@ -252,7 +267,7 @@ export default function Header1() {
                 href="/signup"
                 className="inline-flex items-center space-x-2 rounded-full bg-[var(--primary)] px-6 py-2.5 font-medium text-white transition-all duration-200 hover:shadow-lg"
               >
-                <span>Get a quote</span>
+                <span>{t('cta.getQuote')}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
@@ -308,7 +323,7 @@ export default function Header1() {
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           <motion.div
-                            className="absolute inset-0  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            className="absolute inset-0 bg-gradient-to-r from-[var(--primary)]/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                             layoutId={`mobile-menu-hover-${item.name}`}
                           />
                           <span className="relative flex items-center justify-between">
@@ -336,7 +351,7 @@ export default function Header1() {
                     transition={{ delay: 0.55, duration: 0.3 }}
                   >
                     <div className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-white/50">
-                      Language
+                      {t('language.label')}
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       {languages.map((lang) => (
@@ -392,7 +407,7 @@ export default function Header1() {
                         transition={{ duration: 0.6 }}
                       />
                       <span className="relative flex items-center justify-center space-x-2">
-                        <span>Get a quote</span>
+                        <span>{t('cta.getQuote')}</span>
                         <ArrowRight className="h-4 w-4" />
                       </span>
                     </Link>

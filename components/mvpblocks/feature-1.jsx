@@ -9,39 +9,7 @@ import {
   TrendingUp,
   Headphones,
 } from "lucide-react";
-
-const features = [
-  {
-    icon: <Palette className="h-6 w-6" />,
-    title: "Stunning Custom Design",
-    desc: "Unique, modern designs crafted specifically for your brand — no templates, no compromises.",
-  },
-  {
-    icon: <Rocket className="h-6 w-6" />,
-    title: "Fast & Reliable Delivery",
-    desc: "From concept to launch in record time, without sacrificing quality or performance.",
-  },
-  {
-    icon: <Smartphone className="h-6 w-6" />,
-    title: "Mobile-First Approach",
-    desc: "Fully responsive websites that look and work flawlessly on every device and screen size.",
-  },
-  {
-    icon: <ShieldCheck className="h-6 w-6" />,
-    title: "Secure & Optimized",
-    desc: "Built with best practices: SEO-ready, lightning-fast, and protected against threats.",
-  },
-  {
-    icon: <TrendingUp className="h-6 w-6" />,
-    title: "Designed to Convert",
-    desc: "Strategic layouts and clear calls-to-action that turn visitors into customers.",
-  },
-  {
-    icon: <Headphones className="h-6 w-6" />,
-    title: "Dedicated Support",
-    desc: "We’re with you every step of the way — from planning to post-launch and beyond.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function Feature1() {
   const ref = useRef(null);
@@ -49,6 +17,41 @@ export default function Feature1() {
     once: true,
     margin: "50px", // trigger slightly before fully in view
   });
+  
+  const t = useTranslations('features');
+
+  const features = [
+    {
+      icon: <Palette className="h-6 w-6" />,
+      title: t('items.customDesign.title'),
+      desc: t('items.customDesign.description'),
+    },
+    {
+      icon: <Rocket className="h-6 w-6" />,
+      title: t('items.fastDelivery.title'),
+      desc: t('items.fastDelivery.description'),
+    },
+    {
+      icon: <Smartphone className="h-6 w-6" />,
+      title: t('items.mobileFirst.title'),
+      desc: t('items.mobileFirst.description'),
+    },
+    {
+      icon: <ShieldCheck className="h-6 w-6" />,
+      title: t('items.secureOptimized.title'),
+      desc: t('items.secureOptimized.description'),
+    },
+    {
+      icon: <TrendingUp className="h-6 w-6" />,
+      title: t('items.conversion.title'),
+      desc: t('items.conversion.description'),
+    },
+    {
+      icon: <Headphones className="h-6 w-6" />,
+      title: t('items.support.title'),
+      desc: t('items.support.description'),
+    },
+  ];
 
   return (
     <section className="relative py-14" ref={ref}>
@@ -61,7 +64,7 @@ export default function Feature1() {
               transition={{ duration: 0.6 }}
               className="font-geist mt-4 text-3xl font-normal tracking-tighter text-white sm:text-4xl md:text-5xl"
             >
-              Why Choose Our Agency?
+              {t('title')}
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -69,7 +72,7 @@ export default function Feature1() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-geist mt-3 text-gray-300"
             >
-              We don’t just build websites — we build digital experiences that grow your business.
+              {t('subtitle')}
             </motion.p>
           </div>
         </div>
@@ -86,7 +89,7 @@ export default function Feature1() {
                   delay: 0.2 + idx * 0.1, // staggered entrance
                   ease: "easeOut",
                 }}
-                className="space-y-3 rounded-xl border border-border/30  p-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:scale-[1.02]"
+                className="space-y-3 rounded-xl border border-border/30 p-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:scale-[1.02]"
               >
                 <div className="w-fit rounded-full bg-primary/10 p-4 text-primary">
                   {item.icon}

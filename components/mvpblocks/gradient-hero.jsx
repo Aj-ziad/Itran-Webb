@@ -3,8 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 export default function GradientHero() {
+  const t = useTranslations('hero');
+
   return (
     <div className="bg-foreground relative w-full overflow-hidden">
       {/* Background gradient */}
@@ -22,37 +25,37 @@ export default function GradientHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="mx-auto mb-6 flex justify-center">
-            {/* <div className="border-border bg-foreground/80 inline-flex items-center rounded-full border px-3 py-1 text-sm backdrop-blur-sm">
+            {/* Uncomment if needed
+            <div className="border-border bg-foreground/80 inline-flex items-center rounded-full border px-3 py-1 text-sm backdrop-blur-sm">
               <span className="bg-primary mr-2 rounded-full px-2 py-0.5 text-xs font-semibold text-white">
-                New
+                {t('badge.new')}
               </span>
               <span className="text-gray-300"> 
-                Introducing our latest component library
+                {t('badge.announcement')}
               </span>
               <ChevronRight className="text-gray-300 ml-1 h-4 w-4" /> 
-            </div> */}
+            </div>
+            */}
           </motion.div>
 
-          {/* Heading — now white */}
+          {/* Heading */}
           <motion.h1
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.1 }}
-  className="bg-gradient-to-tl from-white via-white to-gray-200 bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
->
-  Stunning <span className="text-primary"> Websites </span>. Built Fast. Designed to Convert.
-</motion.h1>
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-gradient-to-tl from-white via-white to-gray-200 bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            {t('heading.stunning')} <span className="text-primary">{t('heading.websites')}</span>. {t('heading.builtFast')}
+          </motion.h1>
 
-<motion.p
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
-  className="text-gray-300 mx-auto mt-6 max-w-2xl text-center text-lg"
->
-  We craft high-performance, visually striking websites that elevate your brand,
-  engage your audience, and drive real business results — all delivered on time
-  and tailored to your unique goals.
-</motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-gray-300 mx-auto mt-6 max-w-2xl text-center text-lg"
+          >
+            {t('description')}
+          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
@@ -62,15 +65,13 @@ export default function GradientHero() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               size="lg"
-              className="group bg-primary text-white hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300"> {/* ← text-white */}
+              className="group bg-primary text-white hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300">
               <span className="relative z-10 flex items-center">
-                Get a quote
+                {t('cta.getQuote')}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <span className="from-primary via-primary/90 to-primary/80 absolute inset-0 z-0 bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
             </Button>
-
-            
           </motion.div>
 
           {/* Feature Image */}
@@ -91,14 +92,14 @@ export default function GradientHero() {
                   <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
                   <div className="h-3 w-3 rounded-full bg-green-500"></div>
                 </div>
-                <div className="bg-foreground/50 text-gray-300 mx-auto flex items-center rounded-md px-3 py-1 text-xs"> {/* ← light gray */}
-                  https://your-awesome-app.com
+                <div className="bg-foreground/50 text-gray-300 mx-auto flex items-center rounded-md px-3 py-1 text-xs">
+                  {t('browser.url')}
                 </div>
               </div>
               <div className="relative">
                 <img
                   src="https://i.postimg.cc/0yk8Vz7t/dashboard.webp"
-                  alt="Dashboard Preview"
+                  alt={t('imageAlt')}
                   className="w-full"
                 />
                 <div className="from-forbg-foreground absolute inset-0 bg-gradient-to-t to-transparent opacity-0"></div>
