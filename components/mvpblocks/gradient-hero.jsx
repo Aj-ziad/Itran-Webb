@@ -40,7 +40,7 @@ export default function GradientHero() {
   transition={{ duration: 0.5, delay: 0.1 }}
   className="bg-gradient-to-tl from-white via-white to-gray-200 bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
 >
-  Stunning Websites. Built Fast. Designed to Convert.
+  Stunning <span className="text-primary"> Websites </span>. Built Fast. Designed to Convert.
 </motion.h1>
 
 <motion.p
