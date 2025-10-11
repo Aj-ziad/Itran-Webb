@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import Earth from "@/components/ui/globe";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { Label } from "@/components/ui/label";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, AlertCircle } from "lucide-react";
 
 export default function ContactUs1() {
   const [name, setName] = useState("");
@@ -15,34 +15,49 @@ export default function ContactUs1() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
   const formRef = useRef(null);
   const isInView = useInView(formRef, { once: true, amount: 0.3 });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
+    
     try {
-      console.log("Form submitted:", { name, email, message });
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setName("");
-      setEmail("");
-      setMessage("");
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
+      const response = await fetch("https://formspree.io/f/meorrnkz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+        }),
+      });
+
+      if (response.ok) {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setError("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="  w-full overflow-hidden py-16 md:py-20">
-      {/* Primary color glow */}
-      
-
+    <section className="w-full overflow-hidden py-16 md:py-20">
       <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="border-border/40  mx-auto max-w-6xl overflow-hidden rounded-[28px] border shadow-xl backdrop-blur-sm">
+        <div className="border-border/40 mx-auto max-w-6xl overflow-hidden rounded-[28px] border shadow-xl backdrop-blur-sm">
           <div className="grid md:grid-cols-2">
             {/* Form Side */}
             <div className="relative p-6 md:p-10" ref={formRef}>
@@ -88,11 +103,12 @@ export default function ContactUs1() {
                     </Label>
                     <Input
                       id="name"
+                      name="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Enter your name"
                       required
-                      className=" border-border/50 text-white placeholder:text-gray-400"
+                      className="border-border/50 text-white placeholder:text-gray-400"
                     />
                   </motion.div>
 
@@ -107,12 +123,13 @@ export default function ContactUs1() {
                     </Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                       required
-                      className=" border-border/50 text-white placeholder:text-gray-400"
+                      className="border-border/50 text-white placeholder:text-gray-400"
                     />
                   </motion.div>
                 </div>
@@ -128,13 +145,25 @@ export default function ContactUs1() {
                   </Label>
                   <Textarea
                     id="message"
+                    name="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Enter your message"
                     required
-                    className="h-40 resize-none  border-border/50 text-white placeholder:text-gray-400"
+                    className="h-40 resize-none border-border/50 text-white placeholder:text-gray-400"
                   />
                 </motion.div>
+
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 text-red-400 text-sm"
+                  >
+                    <AlertCircle className="h-4 w-4" />
+                    <span>{error}</span>
+                  </motion.div>
+                )}
 
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full">
                   <Button
@@ -172,9 +201,9 @@ export default function ContactUs1() {
                 <div className="absolute -right-20 -bottom-20 z-10 mx-auto flex h-full w-full max-w-[300px] items-center justify-center transition-all duration-700 hover:scale-105 md:-right-28 md:-bottom-28 md:max-w-[550px]">
                   <Earth
                     scale={1.1}
-                    baseColor={[0.9, 0.7, 0.8]} // Soft pinkish tone matching your primary
+                    baseColor={[0.9, 0.7, 0.8]}
                     markerColor={[1, 1, 1]}
-                    glowColor={[0.9, 0.6, 0.7]} // Subtle glow from --primary
+                    glowColor={[0.9, 0.6, 0.7]}
                   />
                 </div>
               </article>
