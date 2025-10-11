@@ -1,4 +1,7 @@
 {
+  "site": {
+    "title": "Itran Web – Modern Web Solutions"
+  },
   "header": {
     "nav": {
       "home": "Home",
@@ -43,7 +46,7 @@
       "websites": "Websites",
       "builtFast": "Built Fast. Designed to Convert."
     },
-    "description": "We craft high-performance, visually striking websites that elevate your brand, engage your audience, and drive real business results — all delivered on time and tailored to your unique goals.",
+    "description": "We build fast, stunning websites that elevate your brand and drive results—on time and tailored to your goals.",
     "cta": {
       "getQuote": "Get a quote",
       "learnMore": "Learn more"

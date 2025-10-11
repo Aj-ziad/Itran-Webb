@@ -130,7 +130,7 @@ export default function Header1() {
                   />
                   {/* Bottom accent line */}
                   <motion.div
-                    className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-[var(--primary)] to-[var(--primary)]/50"
+                    className="absolute bottom-0 left-1/2 h-0.5 w-0 "
                     whileHover={{ width: '80%', x: '-50%' }}
                     transition={{ duration: 0.3 }}
                   />
@@ -323,7 +323,7 @@ export default function Header1() {
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-[var(--primary)]/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                             layoutId={`mobile-menu-hover-${item.name}`}
                           />
                           <span className="relative flex items-center justify-between">

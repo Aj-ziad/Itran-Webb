@@ -22,7 +22,10 @@ const page = () => {
           ></div>
         <Feature1 />
         <ContactUs1 />
+        <div className="flex ju">
+
         <CTA2 />
+        </div>
       </div>
     </div>
   );

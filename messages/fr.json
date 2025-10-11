@@ -1,4 +1,7 @@
 {
+  "site": {
+    "title": "Itran Web – Solutions Web Modernes"
+  },
   "header": {
     "nav": {
       "home": "Accueil",
@@ -42,7 +45,7 @@
       "websites": "époustouflants",
       "builtFast": "Construits rapidement. Conçus pour convertir."
     },
-    "description": "Nous créons des sites web performants et visuellement saisissants qui valorisent votre marque, engagent votre audience et génèrent de vrais résultats commerciaux — le tout livré dans les délais et adapté à vos objectifs uniques.",
+    "description": "Nous créons des sites web rapides et élégants qui valorisent votre marque et génèrent des résultats — livrés à temps et adaptés à vos objectifs. ",
     "cta": {
       "getQuote": "Obtenir un devis",
       "learnMore": "En savoir plus"

@@ -71,7 +71,7 @@ export default function ContactUs1() {
                 className="flex w-full gap-2"
               >
                 <h2 className="from-white to-gray-300 mb-2 bg-gradient-to-r bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
-                  {t("title")}
+                  {t("title ")}
                 </h2>
                 <span className="text-primary relative z-10 w-full text-4xl font-bold tracking-tight italic md:text-5xl">
                   {t("us")}

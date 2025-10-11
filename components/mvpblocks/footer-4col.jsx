@@ -8,17 +8,18 @@ import {
   MapPin,
   Phone,
   Twitter,
+  
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 const socialLinks = [
-  { icon: Facebook, label: "Facebook", href: "https://facebook.com/mvpblocks" },
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com/mvpblocks" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com/mvpblocks" },
-  { icon: Github, label: "GitHub", href: "https://github.com/mvpblocks" },
-  { icon: Dribbble, label: "Dribbble", href: "https://dribbble.com/mvpblocks" },
+  { icon: Facebook, label: "Facebook", href: "https://facebook.com/itranweb" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/itranweb" },
+  // { icon: Twitter, label: "Twitter", href: "https://twitter.com/mvpblocks" },
+  // { icon: Github, label: "GitHub", href: "https://github.com/mvpblocks" },
+  // { icon: Dribbble, label: "Dribbble", href: "https://dribbble.com/mvpblocks" },
 ];
 
 export default function Footer4Col() {
@@ -57,6 +58,7 @@ export default function Footer4Col() {
     <footer className="mt-16 w-full place-self-end rounded-t-xl">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          
           {/* Brand Column */}
           <div>
             <div className="text-primary flex justify-center gap-2 sm:justify-start">
