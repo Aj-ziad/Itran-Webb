@@ -7,6 +7,7 @@ import Header1 from "@/components/mvpblocks/header-1";
 import Footer4Col from "@/components/mvpblocks/footer-4col"; // 👈 make sure path is correct
 import PageLoader from "@/components/RouteLoader";
 import Image from "next/image";
+import WhatsAppIcon from "@/components/WhatsappIcon";
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
@@ -74,21 +75,7 @@ export default async function LocaleLayout({ children, params }) {
           {children}
 
           {/* WhatsApp Floating Button */}
-          <a
-            href={`https://wa.me/+212674180102`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group fixed right-4 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full animate-pulse shadow-2xl duration-[3000] transition-all"
-            aria-label="Chat on WhatsApp"
-          >
-            <Image
-              src={"/icons/whatsapp-icon.svg"}
-              alt="Whatsapp"
-              height={80}
-              width={80}
-              className="h-20 w-20"
-            />
-          </a>
+          <WhatsAppIcon />
 
           <Footer4Col />
         </NextIntlClientProvider>
