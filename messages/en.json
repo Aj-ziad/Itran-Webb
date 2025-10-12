@@ -163,8 +163,10 @@
     }
   },
   "projects": {
-    "title": "Our Projects",
-    "subtitle": "Explore some of our recent work."
-    
-  }
+  "title": "Our Projects",
+  "subtitle": "Explore some of our recent work.",
+  "showMore": "Show More",
+  "showLess": "Show Less"
+}
+
 }

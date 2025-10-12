@@ -160,9 +160,11 @@
       "notice": "&copy; 2025 {name}"
     }
   },
-  "projects": {
-    "title": "Nos Projets",
-    "subtitle": "Découvrez certains de nos travaux récents."
-    
-  }
+ "projects": {
+  "title": "Nos Projets",
+  "subtitle": "Découvrez quelques-unes de nos réalisations récentes.",
+  "showMore": "Voir plus",
+  "showLess": "Voir moins"
+}
+
 }
