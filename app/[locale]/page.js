@@ -1,12 +1,24 @@
-import HeroSection from "@/components/MainPage/HeroSection";
+"use client"
 import ContactUs1 from "@/components/mvpblocks/contact-us-1";
 import CTA2 from "@/components/mvpblocks/cta-2";
 import Feature1 from "@/components/mvpblocks/feature-1";
 import GradientHero from "@/components/mvpblocks/gradient-hero";
+import ProjectGrid from "@/components/mvpblocks/projectsGrid";
 import LogoCloud from "@/components/mvpblocks/sparkles-logo";
-import React from "react";
+import Lenis from "lenis";
+import React, { useEffect } from "react";
 
-const page = () => {
+const Page = () => {
+
+  useEffect(() => {
+    const lenis = new Lenis()
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf)
+  }, [])
+
   return (
     <div>
       {/* <HeroSection /> */}
@@ -21,9 +33,9 @@ const page = () => {
             }}
           ></div>
         <Feature1 />
+        <ProjectGrid />
         <ContactUs1 />
         <div className="flex ju">
-
         <CTA2 />
         </div>
       </div>
@@ -31,4 +43,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -159,5 +159,10 @@
       "rights": "Tous droits réservés.",
       "notice": "&copy; 2025 {name}"
     }
+  },
+  "projects": {
+    "title": "Nos Projets",
+    "subtitle": "Découvrez certains de nos travaux récents."
+    
   }
 }
