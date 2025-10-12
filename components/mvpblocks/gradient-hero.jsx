@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function GradientHero() {
   const t = useTranslations('hero');
@@ -97,8 +98,10 @@ export default function GradientHero() {
                 </div>
               </div>
               <div className="relative">
-                <img
-                  src="https://i.postimg.cc/0yk8Vz7t/dashboard.webp"
+                <Image
+                  src='/illustrations/dashboard.png'
+                  width={500}
+                  height={300}
                   alt={t('imageAlt')}
                   className="w-full"
                 />
