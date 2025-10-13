@@ -34,16 +34,13 @@ export default async function LocaleLayout({ children, params }) {
         <link
           rel="alternate"
           hrefLang="x-default"
-          href="https://yourdomain.com/en"
+          href="https://itran-web-oepw.vercel.app/en"
         />
         {/* Page Title */}
         <title>{t("title")}</title>
 
         {/* Favicon */}
-        <link rel="icon" href="/icon.ico" sizes="any" />
-        {/* Optional: add SVG favicon for modern browsers */}
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
+     
         {/* Fonts */}
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500,501,700&display=swap"
