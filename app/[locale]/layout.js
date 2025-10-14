@@ -9,6 +9,33 @@ import PageLoader from "@/components/RouteLoader";
 import Image from "next/image";
 import WhatsAppIcon from "@/components/WhatsappIcon";
 
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // 🧩 Get translation function for "site" namespace
+  const t = await getTranslations({ locale, namespace: "site" });
+
+  return {
+    title: {
+      default: t("title"),
+      template: `%s - Itran Web`,
+    },
+    description: t("description"),
+    alternates: {
+      canonical: `https://itran-web-oepw.vercel.app/${locale}`,
+      languages: {
+        en: "https://itran-web-oepw.vercel.app/en",
+        fr: "https://itran-web-oepw.vercel.app/fr",
+        ar: "https://itran-web-oepw.vercel.app/ar",
+      },
+    },
+  };
+}
+
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
 
@@ -37,7 +64,6 @@ export default async function LocaleLayout({ children, params }) {
           href="https://itran-web-oepw.vercel.app/en"
         />
         {/* Page Title */}
-        <title>{t("title")}</title>
 
         {/* Favicon */}
      
@@ -69,12 +95,21 @@ export default async function LocaleLayout({ children, params }) {
         <NextIntlClientProvider>
           <Header1 />
           <PageLoader />
+          <div className="relative">
+        <div
+          className="absolute inset-0 h-fit mx-auto  max-w-xs blur-[118px]"
+          style={{
+            background:
+              "linear-gradient(152.92deg, var(--primary) 10%, transparent 80%)",
+          }}
+        ></div> 
           {children}
 
           {/* WhatsApp Floating Button */}
           <WhatsAppIcon />
 
           <Footer4Col />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

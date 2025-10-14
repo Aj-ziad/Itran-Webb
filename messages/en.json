@@ -1,6 +1,7 @@
 {
   "site": {
-    "title": "Itran Web – Modern Web Solutions"
+    "title": "Itran Web – Modern Web Solutions",
+    "description": "Itran Web is a Moroccan web design and development agency that builds modern, high-performance websites and digital experiences to help businesses grow online."
   },
   "header": {
     "nav": {
@@ -34,8 +35,7 @@
     },
     "loading": "Loading...",
     "loadingAssets": "Loading assets..."
-  }
-  ,
+  },
   "hero": {
     "badge": {
       "new": "New",
@@ -114,8 +114,7 @@
     "errorGeneric": "Something went wrong. Please try again.",
     "errorFailed": "Failed to send message. Please try again.",
     "globeText": "Presenting you with the best UI possible."
-  }
-  ,
+  },
   "cta2": {
     "title": "Let's Get In Touch.",
     "description": "Your laboratory instruments should serve you, not the other way around. We're happy to help you.",
@@ -163,10 +162,9 @@
     }
   },
   "projects": {
-  "title": "Our Projects",
-  "subtitle": "Explore some of our recent work.",
-  "showMore": "Show More",
-  "showLess": "Show Less"
-}
-
+    "title": "Our Projects",
+    "subtitle": "Explore some of our recent work.",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  }
 }

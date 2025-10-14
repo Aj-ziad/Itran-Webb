@@ -1,7 +1,9 @@
 {
   "site": {
-    "title": "Itran Web – Solutions Web Modernes"
-  },
+  "title": "Itran Web – Solutions Web Modernes",
+  "description": "Itran Web est une agence marocaine de conception et de développement web qui crée des sites modernes et performants pour aider les entreprises à se développer en ligne."
+}
+,
   "header": {
     "nav": {
       "home": "Accueil",

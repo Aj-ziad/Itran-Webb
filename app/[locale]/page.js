@@ -8,6 +8,12 @@ import Projects from "@/components/Projects";
 import Lenis from "lenis";
 import React, { useEffect } from "react";
 
+// export const metadata = {
+//   title: 'My Blog',
+//   description: '...',
+// }
+ 
+
 const Page = () => {
   useEffect(() => {
     const lenis = new Lenis();
@@ -25,14 +31,7 @@ const Page = () => {
       {/* <HeroSection /> */}
       <GradientHero />
       <LogoCloud />
-      <div className="relative">
-        <div
-          className="absolute inset-0 h-fit mx-auto  max-w-xs blur-[118px]"
-          style={{
-            background:
-              "linear-gradient(152.92deg, var(--primary) 10%, transparent 80%)",
-          }}
-        ></div> 
+      
         <Projects />
         <Feature1 />
         <ContactUs1 />
@@ -40,7 +39,6 @@ const Page = () => {
           <CTA2 />
         </div>
       </div>
-    </div>
   );
 };
 
