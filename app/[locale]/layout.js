@@ -8,6 +8,7 @@ import Footer4Col from "@/components/mvpblocks/footer-4col"; // 👈 make sure p
 import PageLoader from "@/components/RouteLoader";
 import Image from "next/image";
 import WhatsAppIcon from "@/components/WhatsappIcon";
+import { Analytics } from "@vercel/analytics/next"
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -111,6 +112,7 @@ export default async function LocaleLayout({ children, params }) {
           <Footer4Col />
           </div>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
