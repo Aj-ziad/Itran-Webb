@@ -8,7 +8,7 @@ import Footer4Col from "@/components/mvpblocks/footer-4col"; // 👈 make sure p
 import PageLoader from "@/components/RouteLoader";
 import Image from "next/image";
 import WhatsAppIcon from "@/components/WhatsappIcon";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -67,7 +67,22 @@ export default async function LocaleLayout({ children, params }) {
         {/* Page Title */}
 
         {/* Favicon */}
-     
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Itran Web" />
+        <link rel="manifest" href="/site.webmanifest" />
+
         {/* Fonts */}
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500,501,700&display=swap"
@@ -97,19 +112,19 @@ export default async function LocaleLayout({ children, params }) {
           <Header1 />
           <PageLoader />
           <div className="relative">
-        <div
-          className="absolute inset-0 h-fit mx-auto  max-w-xs blur-[118px]"
-          style={{
-            background:
-              "linear-gradient(152.92deg, var(--primary) 10%, transparent 80%)",
-          }}
-        ></div> 
-          {children}
+            <div
+              className="absolute inset-0 h-fit mx-auto  max-w-xs blur-[118px]"
+              style={{
+                background:
+                  "linear-gradient(152.92deg, var(--primary) 10%, transparent 80%)",
+              }}
+            ></div>
+            {children}
 
-          {/* WhatsApp Floating Button */}
-          <WhatsAppIcon />
+            {/* WhatsApp Floating Button */}
+            <WhatsAppIcon />
 
-          <Footer4Col />
+            <Footer4Col />
           </div>
         </NextIntlClientProvider>
         <Analytics />
