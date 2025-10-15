@@ -167,6 +167,104 @@
   "subtitle": "Découvrez quelques-unes de nos réalisations récentes.",
   "showMore": "Voir plus",
   "showLess": "Voir moins"
-}
+},
+
+  "about": {
+    "metadata": {
+      "title": "À propos",
+      "description": "Itran Web est une agence web marocaine fondée par deux développeurs expérimentés. Nous créons des sites web rapides, sur mesure et conçus pour convertir, destinés aux restaurants, marques e-commerce et studios créatifs à Casablanca, Rabat et au-delà."
+    },
+    "hero": {
+      "title": {
+        "before": "À propos",
+        "highlight": "d’Itran Web"
+      },
+      "description": "Une agence marocaine de conception et de développement web qui crée des sites performants pour les entreprises qui attendent plus qu’une simple vitrine numérique."
+    },
+    "whoWeAre": {
+      "title": "Qui sommes-nous ?",
+      "paragraph1": {
+        "before": "Itran Web est une agence web de niche basée au ",
+        "morocco": "Maroc",
+        "after": ", cofondée par deux développeurs et designers passionnés qui pensent que votre site web doit être un atout stratégique — et non un simple coût."
+      },
+      "paragraph2": {
+        "before": "Depuis 2025, nous accompagnons des restaurants, marques e-commerce, studios créatifs et startups à ",
+        "cities": "Casablanca, Rabat, Marrakech et Tanger",
+        "middle": " pour créer des sites ",
+        "features": "rapides, sécurisés, mobile-first et conçus pour convertir",
+        "after": "."
+      }
+    },
+    "mission": {
+      "title": "Notre mission",
+      "description": "Donner aux entreprises marocaines et internationales des expériences digitales sur mesure qui reflètent leur marque, engagent leur audience et génèrent une croissance mesurable — sans recourir à des modèles prédéfinis ni à des plateformes encombrantes."
+    },
+    "whyChooseUs": {
+      "title": "Pourquoi les entreprises font confiance à Itran Web",
+      "benefit1": {
+        "highlight": "Développement 100 % sur mesure",
+        "rest": " – Pas de thèmes WordPress. Aucun compromis avec les outils glisser-déposer."
+      },
+      "benefit2": {
+        "highlight": "Performance ultra-rapide",
+        "rest": " – Optimisé pour les Core Web Vitals et le référencement Google."
+      },
+      "benefit3": {
+        "highlight": "Approche mobile-first",
+        "rest": " – Entièrement responsive sur tous les appareils (téléphones, tablettes, ordinateurs)."
+      },
+      "benefit4": {
+        "highlight": "Structure prête pour le SEO",
+        "rest": " – Code propre, HTML sémantique et temps de chargement rapides intégrés dès la base."
+      },
+      "benefit5": {
+        "highlight": "Support dédié",
+        "rest": " – Accès direct aux deux fondateurs — pas de gestionnaires de compte intermédiaires."
+      },
+      "benefit6": {
+        "highlight": "Livraison dans les délais",
+        "rest": " – Nous respectons vos échéances et lançons le projet à la date convenue."
+      }
+    },
+    "workAndExpertise": {
+      "title": "Nos réalisations et expertises",
+      "intro": "Nous sommes spécialisés dans trois types principaux de sites web pour nos clients au Maroc et dans le monde :",
+      "project1": {
+        "type": "Sites pour restaurants et hôtellerie",
+        "before": "Comme ",
+        "name": "La Maison Roaa",
+        "after": ", doté d’un système de réservation en ligne, d’un support multilingue et d’un design élégant."
+      },
+      "project2": {
+        "type": "Tableaux de bord pour agences créatives",
+        "before": "Tels que ",
+        "name": "Digihive Studio",
+        "after": ", avec gestion de projets personnalisée et espace client sécurisé."
+      },
+      "project3": {
+        "type": "Boutiques e-commerce premium",
+        "before": "Notamment ",
+        "name": "RGB Glow",
+        "after": ", une boutique en ligne sécurisée et évolutive pour cosmétiques avec un paiement fluide."
+      }
+    },
+    "localPresence": {
+      "title": "Au service du Maroc avec des standards internationaux",
+      "description1": "Bien que basés fièrement au Maroc, nos pratiques de développement suivent les standards internationaux. Nous intervenons auprès de clients à :",
+      "cities": "Casablanca • Rabat • Marrakech • Tanger • Agadir",
+      "remote": "et partout dans le monde à distance.",
+      "description2": {
+        "before": "Que vous ayez besoin d’un site en ",
+        "langs": "français, arabe, anglais ou bilingue",
+        "after": ", nous concevons en pensant dès le départ à la localisation."
+      }
+    },
+    "cta": {
+      "title": "Prêt à créer votre site web ?",
+      "description": "Nous n’acceptons que quelques projets à la fois pour garantir qualité et attention. Si vous recherchez un partenaire web fiable, rapide et stratégique au Maroc — parlons-en.",
+      "button": "Obtenir une consultation gratuite"
+    }
+  }
 
 }

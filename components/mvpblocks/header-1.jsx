@@ -93,7 +93,7 @@ export default function Header1() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Link prefetch={false} href="/" className="flex items-center space-x-2">
+            <Link prefetch={false} href="/" className="flex items-center space-x-3">
               <Image src={'/logo-trans.png'} width={50} height={50} alt="itran web" />
               <span className="text-white text-2xl">Itran Web</span>
             </Link>

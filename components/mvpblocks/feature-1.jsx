@@ -10,6 +10,7 @@ import {
   Headphones,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function Feature1() {
   const ref = useRef(null);
@@ -22,32 +23,32 @@ export default function Feature1() {
 
   const features = [
     {
-      icon: <Palette className="h-6 w-6" />,
+      url: '/icons/draw-icon.png',
       title: t('items.customDesign.title'),
       desc: t('items.customDesign.description'),
     },
     {
-      icon: <Rocket className="h-6 w-6" />,
+      url: '/icons/rocket-icon.png',
       title: t('items.fastDelivery.title'),
       desc: t('items.fastDelivery.description'),
     },
     {
-      icon: <Smartphone className="h-6 w-6" />,
+      url: '/icons/phone-icon.png',
       title: t('items.mobileFirst.title'),
       desc: t('items.mobileFirst.description'),
     },
     {
-      icon: <ShieldCheck className="h-6 w-6" />,
+      url: '/icons/security-icon.png',
       title: t('items.secureOptimized.title'),
       desc: t('items.secureOptimized.description'),
     },
     {
-      icon: <TrendingUp className="h-6 w-6" />,
+      url: '/icons/trending-icon.png',
       title: t('items.conversion.title'),
       desc: t('items.conversion.description'),
     },
     {
-      icon: <Headphones className="h-6 w-6" />,
+      url: '/icons/headphones-icon.png',
       title: t('items.support.title'),
       desc: t('items.support.description'),
     },
@@ -91,8 +92,8 @@ export default function Feature1() {
                 }}
                 className="space-y-3 rounded-xl border border-border/30 p-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:scale-[1.02]"
               >
-                <div className="w-fit rounded-full bg-primary/10 p-4 text-primary">
-                  {item.icon}
+                <div className="w-fit rounded-full bg-primary/10 text-primary">
+                  <Image src={item.url} alt={item.name} height={60} width={60} />
                 </div>
                 <h4 className="font-geist text-lg font-bold tracking-tighter text-white">
                   {item.title}

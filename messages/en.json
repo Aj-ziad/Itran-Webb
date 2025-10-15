@@ -52,7 +52,7 @@
       "learnMore": "Learn more"
     },
     "browser": {
-      "url": "https://your-awesome-app.com"
+      "url": "https://your-awesome-app.com  "
     },
     "imageAlt": "Dashboard Preview"
   },
@@ -97,6 +97,56 @@
         "title": "Dedicated Support",
         "description": "We're with you every step of the way — from planning to post-launch and beyond."
       }
+    }
+  },
+  "about": {
+    "metadata": {
+      "title": "About",
+      "description": "Itran Web is a Moroccan web agency founded by two expert developers. We build fast, custom, conversion-focused websites for restaurants, e-commerce brands, and creative studios across Casablanca, Rabat, and beyond."
+    },
+    "hero": {
+      "title": "About <span class=\"text-primary\">Itran Web</span>",
+      "description": "A Moroccan web design and development agency crafting high-performance websites for businesses that demand more than just a digital brochure."
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "paragraph1": "Itran Web is a boutique web agency based in <strong>Morocco</strong>, co-founded by two passionate developers and designers who believe your website should be a strategic asset—not a cost center.",
+      "paragraph2": "Since 2025, we’ve partnered with restaurants, e-commerce brands, creative studios, and startups across <strong>Casablanca, Rabat, Marrakech, and Tangier</strong> to build websites that are <strong>fast, secure, mobile-first, and built to convert</strong>."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To empower Moroccan and international businesses with custom digital experiences that reflect their brand, engage their audience, and drive measurable growth—without relying on templates or bloated platforms."
+    },
+    "whyChooseUs": {
+      "title": "Why Businesses Trust Itran Web",
+      "benefits": [
+        "<strong>100% Custom Development</strong> – No WordPress templates. No drag-and-drop compromises.",
+        "<strong>Blazing-Fast Performance</strong> – Optimized for Core Web Vitals and Google rankings.",
+        "<strong>Mobile-First Design</strong> – Fully responsive on all devices (phones, tablets, desktops).",
+        "<strong>SEO-Ready Structure</strong> – Clean code, semantic HTML, and fast load times built in.",
+        "<strong>Dedicated Support</strong> – Direct access to the two founders—no account managers.",
+        "<strong>On-Time Delivery</strong> – We respect your deadlines and launch when promised."
+      ]
+    },
+    "workAndExpertise": {
+      "title": "Our Work & Expertise",
+      "intro": "We specialize in three core types of websites for Moroccan and global clients:",
+      "projects": [
+        "<strong>Restaurant & Hospitality Websites</strong> – Like <a href=\"#\" class=\"text-primary hover:underline\">La Maison Roaa</a>, featuring online reservation systems, multilingual support, and elegant design.",
+        "<strong>Creative Agency Dashboards</strong> – Such as <a href=\"#\" class=\"text-primary hover:underline\">Digihive Studio</a>, with custom project management and client portals.",
+        "<strong>Premium E-commerce Platforms</strong> – Including <a href=\"#\" class=\"text-primary hover:underline\">RGB Glow</a>, a secure, scalable online store for cosmetics with seamless checkout."
+      ]
+    },
+    "localPresence": {
+      "title": "Serving Morocco with Global Standards",
+      "description1": "While we’re proudly based in Morocco, our development practices follow international standards. We serve clients in:",
+      "cities": "<strong>Casablanca • Rabat • Marrakech • Tangier • Agadir</strong> — and remotely worldwide.",
+      "description2": "Whether you need a website in <strong>French, Arabic, English, or bilingual</strong>, we build with localization in mind."
+    },
+    "cta": {
+      "title": "Ready to Build Your Website?",
+      "description": "We only take on a few projects at a time to ensure quality and attention. If you’re looking for a reliable, fast, and strategic web partner in Morocco—let’s talk.",
+      "button": "Get a Free Consultation"
     }
   },
   "contact": {
@@ -166,5 +216,102 @@
     "subtitle": "Explore some of our recent work.",
     "showMore": "Show More",
     "showLess": "Show Less"
+  },
+  "about": {
+    "metadata": {
+      "title": "About",
+      "description": "Itran Web is a Moroccan web agency founded by two expert developers. We build fast, custom, conversion-focused websites for restaurants, e-commerce brands, and creative studios across Casablanca, Rabat, and beyond."
+    },
+    "hero": {
+      "title": {
+        "before": "About",
+        "highlight": "Itran Web"
+      },
+      "description": "A Moroccan web design and development agency crafting high-performance websites for businesses that demand more than just a digital brochure."
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "paragraph1": {
+        "before": "Itran Web is a boutique web agency based in ",
+        "morocco": "Morocco",
+        "after": ", co-founded by two passionate developers and designers who believe your website should be a strategic asset—not a cost center."
+      },
+      "paragraph2": {
+        "before": "Since 2025, we’ve partnered with restaurants, e-commerce brands, creative studios, and startups across ",
+        "cities": "Casablanca, Rabat, Marrakech, and Tangier",
+        "middle": " to build websites that are ",
+        "features": "fast, secure, mobile-first, and built to convert",
+        "after": "."
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To empower Moroccan and international businesses with custom digital experiences that reflect their brand, engage their audience, and drive measurable growth—without relying on templates or bloated platforms."
+    },
+    "whyChooseUs": {
+      "title": "Why Businesses Trust Itran Web",
+      "benefit1": {
+        "highlight": "100% Custom Development",
+        "rest": " – No WordPress templates. No drag-and-drop compromises."
+      },
+      "benefit2": {
+        "highlight": "Blazing-Fast Performance",
+        "rest": " – Optimized for Core Web Vitals and Google rankings."
+      },
+      "benefit3": {
+        "highlight": "Mobile-First Design",
+        "rest": " – Fully responsive on all devices (phones, tablets, desktops)."
+      },
+      "benefit4": {
+        "highlight": "SEO-Ready Structure",
+        "rest": " – Clean code, semantic HTML, and fast load times built in."
+      },
+      "benefit5": {
+        "highlight": "Dedicated Support",
+        "rest": " – Direct access to the two founders—no account managers."
+      },
+      "benefit6": {
+        "highlight": "On-Time Delivery",
+        "rest": " – We respect your deadlines and launch when promised."
+      }
+    },
+    "workAndExpertise": {
+      "title": "Our Work & Expertise",
+      "intro": "We specialize in three core types of websites for Moroccan and global clients:",
+      "project1": {
+        "type": "Restaurant & Hospitality Websites",
+        "before": "Like ",
+        "name": "La Maison Roaa",
+        "after": ", featuring online reservation systems, multilingual support, and elegant design."
+      },
+      "project2": {
+        "type": "Creative Agency Dashboards",
+        "before": "Such as ",
+        "name": "Digihive Studio",
+        "after": ", with custom project management and client portals."
+      },
+      "project3": {
+        "type": "Premium E-commerce Platforms",
+        "before": "Including ",
+        "name": "RGB Glow",
+        "after": ", a secure, scalable online store for cosmetics with seamless checkout."
+      }
+    },
+    "localPresence": {
+      "title": "Serving Morocco with Global Standards",
+      "description1": "While we’re proudly based in Morocco, our development practices follow international standards. We serve clients in:",
+      "cities": "Casablanca • Rabat • Marrakech • Tangier • Agadir",
+      "remote": "and remotely worldwide.",
+      "description2": {
+        "before": "Whether you need a website in ",
+        "langs": "French, Arabic, English, or bilingual",
+        "after": ", we build with localization in mind."
+      }
+    },
+    "cta": {
+      "title": "Ready to Build Your Website?",
+      "description": "We only take on a few projects at a time to ensure quality and attention. If you’re looking for a reliable, fast, and strategic web partner in Morocco—let’s talk.",
+      "button": "Get a Free Consultation"
+    }
   }
 }

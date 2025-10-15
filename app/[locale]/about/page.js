@@ -1,14 +1,21 @@
-// app/about/page.tsx
+// app/[locale]/about/page.tsx
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  title: 'About',
-  description:
-    'Itran Web is a Moroccan web agency founded by two expert developers. We build fast, custom, conversion-focused websites for restaurants, e-commerce brands, and creative studios across Casablanca, Rabat, and beyond.',
-};
+// Generate localized metadata
+export async function generateMetadata({ params: { locale }  }) {
+  const t = await getTranslations({ locale, namespace: 'about.metadata' });
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
 
 export default function AboutPage() {
+  const t = useTranslations('about');
+
   return (
     <div className="relative min-h-screen overflow-hidden pt-10 text-white">
       {/* Background Effects */}
@@ -21,108 +28,116 @@ export default function AboutPage() {
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            About <span className="text-primary">Itran Web</span>
+            {t('hero.title.before')}{' '}
+            <span className="text-primary">{t('hero.title.highlight')}</span>
           </h1>
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
-            A Moroccan web design and development agency crafting high-performance websites for businesses that demand more than just a digital brochure.
+            {t('hero.description')}
           </p>
         </div>
 
         <div className="space-y-8 text-gray-200">
           {/* Who We Are */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Who We Are</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('whoWeAre.title')}</h2>
             <p>
-              Itran Web is a boutique web agency based in <strong>Morocco</strong>, co-founded by two passionate developers and designers who believe your website should be a strategic asset—not a cost center.
+              {t('whoWeAre.paragraph1.before')}{' '}
+              <strong>{t('whoWeAre.paragraph1.morocco')}</strong>
+              {t('whoWeAre.paragraph1.after')}
             </p>
             <p>
-              Since 2025, we’ve partnered with restaurants, e-commerce brands, creative studios, and startups across <strong>Casablanca, Rabat, Marrakech, and Tangier</strong> to build websites that are <strong>fast, secure, mobile-first, and built to convert</strong>.
+              {t('whoWeAre.paragraph2.before')}{' '}
+              <strong>{t('whoWeAre.paragraph2.cities')}</strong>
+              {t('whoWeAre.paragraph2.middle')}{' '}
+              <strong>{t('whoWeAre.paragraph2.features')}</strong>
+              {t('whoWeAre.paragraph2.after')}
             </p>
           </section>
 
           {/* Our Mission */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-            <p>
-              To empower Moroccan and international businesses with custom digital experiences that reflect their brand, engage their audience, and drive measurable growth—without relying on templates or bloated platforms.
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('mission.title')}</h2>
+            <p>{t('mission.description')}</p>
           </section>
 
           {/* Why Choose Us */}
           <section>
-            <h2 className="text-2xl font-bold text-primary mb-4">Why Businesses Trust Itran Web</h2>
+            <h2 className="text-2xl font-bold text-primary mb-4">{t('whyChooseUs.title')}</h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <li className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span><strong>100% Custom Development</strong> – No WordPress templates. No drag-and-drop compromises.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span><strong>Blazing-Fast Performance</strong> – Optimized for Core Web Vitals and Google rankings.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span><strong>Mobile-First Design</strong> – Fully responsive on all devices (phones, tablets, desktops).</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span><strong>SEO-Ready Structure</strong> – Clean code, semantic HTML, and fast load times built in.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span><strong>Dedicated Support</strong> – Direct access to the two founders—no account managers.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span><strong>On-Time Delivery</strong> – We respect your deadlines and launch when promised.</span>
-              </li>
+              {[
+                'benefit1',
+                'benefit2',
+                'benefit3',
+                'benefit4',
+                'benefit5',
+                'benefit6',
+              ].map((key) => (
+                <li key={key} className="flex items-start">
+                  <span className="text-primary mr-2">✓</span>
+                  <span>
+                    <strong>{t(`whyChooseUs.${key}.highlight`)}</strong>
+                    {t(`whyChooseUs.${key}.rest`)}
+                  </span>
+                </li>
+              ))}
             </ul>
           </section>
 
-          {/* Our Projects & Expertise */}
+          {/* Our Work & Expertise */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Our Work & Expertise</h2>
-            <p>
-              We specialize in three core types of websites for Moroccan and global clients:
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('workAndExpertise.title')}</h2>
+            <p>{t('workAndExpertise.intro')}</p>
             <ul className="list-disc pl-6 mt-3 space-y-2">
               <li>
-                <strong>Restaurant & Hospitality Websites</strong> – Like <Link href="#" className="text-primary hover:underline">La Maison Roaa</Link>, featuring online reservation systems, multilingual support, and elegant design.
+                <strong>{t('workAndExpertise.project1.type')}</strong> –{' '}
+                {t('workAndExpertise.project1.before')}{' '}
+                <Link href="#" className="text-primary hover:underline">
+                  {t('workAndExpertise.project1.name')}
+                </Link>
+                {t('workAndExpertise.project1.after')}
               </li>
               <li>
-                <strong>Creative Agency Dashboards</strong> – Such as <Link href="#" className="text-primary hover:underline">Digihive Studio</Link>, with custom project management and client portals.
+                <strong>{t('workAndExpertise.project2.type')}</strong> –{' '}
+                {t('workAndExpertise.project2.before')}{' '}
+                <Link href="#" className="text-primary hover:underline">
+                  {t('workAndExpertise.project2.name')}
+                </Link>
+                {t('workAndExpertise.project2.after')}
               </li>
               <li>
-                <strong>Premium E-commerce Platforms</strong> – Including <Link href="#" className="text-primary hover:underline">RGB Glow</Link>, a secure, scalable online store for cosmetics with seamless checkout.
+                <strong>{t('workAndExpertise.project3.type')}</strong> –{' '}
+                {t('workAndExpertise.project3.before')}{' '}
+                <Link href="#" className="text-primary hover:underline">
+                  {t('workAndExpertise.project3.name')}
+                </Link>
+                {t('workAndExpertise.project3.after')}
               </li>
             </ul>
           </section>
 
           {/* Local Presence */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Serving Morocco with Global Standards</h2>
-            <p>
-              While we’re proudly based in Morocco, our development practices follow international standards. We serve clients in:
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('localPresence.title')}</h2>
+            <p>{t('localPresence.description1')}</p>
             <p className="mt-2">
-              <strong>Casablanca • Rabat • Marrakech • Tangier • Agadir</strong> — and remotely worldwide.
+              <strong>{t('localPresence.cities')}</strong> — {t('localPresence.remote')}
             </p>
             <p className="mt-3">
-              Whether you need a website in <strong>French, Arabic, English, or bilingual</strong>, we build with localization in mind.
+              {t('localPresence.description2.before')}{' '}
+              <strong>{t('localPresence.description2.langs')}</strong>
+              {t('localPresence.description2.after')}
             </p>
           </section>
 
           {/* CTA */}
           <section className="mt-12 pt-8 border-t border-gray-800">
-            <h2 className="text-2xl font-bold text-white mb-4">Ready to Build Your Website?</h2>
-            <p className="mb-6">
-              We only take on a few projects at a time to ensure quality and attention. If you’re looking for a reliable, fast, and strategic web partner in Morocco—let’s talk.
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('cta.title')}</h2>
+            <p className="mb-6">{t('cta.description')}</p>
             <Link
               href="/contact"
               className="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
             >
-              Get a Free Consultation  <span><ArrowRight className='inline-block'/></span>
+              {t('cta.button')} <ArrowRight className="inline-block ml-1" />
             </Link>
           </section>
         </div>
